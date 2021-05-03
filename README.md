@@ -49,6 +49,7 @@ Pengerjaan proyek di tengah pandemi saat ini, dapat dilakukan dengan menggunakan
 - Discord
 - OneNote
 - Visual Studio Code
+- 
 Pekerjaan juga dilakukan dengan membagi pekerjaan pada masing-masing anggota
 
 
