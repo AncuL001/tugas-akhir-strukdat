@@ -9,6 +9,7 @@ Anggota Kelompok:
 Kehidupan universitas merupakan kehidupan yang *chaotic*. Jika tidak dilakukan manajemen waktu dengan baik, kemungkinan besar mahasiswa akan keteteran sehingga menurunkan performa akademik maupun nonakademik mereka. Salah satu cara untuk melakukan manajemen waktu adalah dengan mendaftarkan dan menjadwalkan apa saja yang harus dilakukan untuk hari-hari ke depan.
 
 ## Tujuan dan Manfaat
+Program ini dibuat dengan tujuan memudahkan mahasiswa dalam mengatur jadwal mereka dengan menuliskannya dalam bentuk daftar pada program ini. Selain itu, program ini juga dapat menjadi pengingat jadwal bagi mahasiswa agar tidak lupa akan rencana yang dimilikinya. Manfaat yang diharapkan adalah mahasiswa merasa terbantu dengan adanya program ini dan dapat mengatur jadwal dan waktunya dengan baik.
 
 
 ## Penjelasan Aplikasi
