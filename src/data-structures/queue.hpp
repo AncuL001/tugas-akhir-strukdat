@@ -45,15 +45,16 @@ namespace data_structures {
     }
 
     void enqueue(const TaskNodePointer newNode){
+      // deadline lebih awal = lebih di atas
+
       if (is_empty()) {
         head = newNode;
         tail = newNode;
         return;
       } 
+
       TaskNodePointer tempPrev = nullptr;
       TaskNodePointer temp = head;
-      //TODO : Implementasikan priority queue berdasarkan tanggal deadline 
-      //(deadline lebih awal = lebih di atas)
       
       while (compare_deadline(temp->deadline, newNode->deadline) == '>' || 
              compare_deadline(temp->deadline, newNode->deadline) == '='){
@@ -61,6 +62,7 @@ namespace data_structures {
         tempPrev = temp;
         temp = temp->next;
       }
+
       if (temp == head && compare_deadline(newNode->deadline, temp->deadline) == '>'){
         newNode->next = temp;
         head = newNode;
@@ -76,16 +78,33 @@ namespace data_structures {
     }
 
     void dequeue(){
-      TaskNodePointer temp = head;
-      //TODO : Implementasikan
+      TaskNodePointer delPtr;
+      if (is_empty()){
+        delPtr = nullptr;
+        return;
+      }
+
+      if (head->next == nullptr){
+        delPtr = head;
+        head = nullptr;
+        tail = nullptr;
+        delete delPtr;
+        return;
+      }
+      
+      delPtr = head;
+      head = head->next;
+      delete delPtr;
     }
 
     TaskNodePointer top() const {
       return head;
     }
 
-    void for_each() const {
-      //TODO : Implementasikan
+    void for_each(void (func)(TaskNodePointer)) const {
+      for (auto temp = head; temp; temp = temp->next){
+        func(temp);
+      }
     }
   };
 }

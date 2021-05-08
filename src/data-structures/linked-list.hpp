@@ -19,7 +19,6 @@ namespace data_structures {
       prev = nullptr;
       next = nullptr;
     }
-
   };
 
   typedef CategoryNode *CategoryNodePointer;
@@ -61,20 +60,51 @@ namespace data_structures {
       return temp;
     }
 
-    void remove_category(std::string name) {
+    bool remove_category(std::string name) {
+      // 0 jika gagal, 1 jika berhasil
       CategoryNodePointer temp = find_category(name);
-      //TODO : Implementasikan
-    }
+      if (temp == nullptr) return 0;
 
-    void rename_category(const std::string oldName, const std::string newName){
-      CategoryNodePointer temp = find_category(oldName);
-      if (temp){
-        temp->name = newName;
+      if (temp == head){
+        if (temp == tail){
+          head = nullptr;
+          tail = nullptr;
+        }
+        else {
+          temp->next->prev = nullptr;
+          head = temp->next;
+        }
       }
+
+      else {
+        if (temp == tail){
+          temp->prev->next = nullptr;
+          tail = temp->prev;
+        }
+        else {
+          temp->next->prev = temp->prev;
+          temp->prev->next = temp->next;
+        }
+      }
+
+      delete temp;
+      // TODO : Benahi memory leak
+      return 1;
     }
 
-    void for_each() const {
-      //TODO : Implementasikan
+    bool rename_category(const std::string oldName, const std::string newName){
+      // 0 jika gagal, 1 jika berhasil
+      CategoryNodePointer temp = find_category(oldName);
+      if (temp == nullptr) return 0;
+
+      temp->name = newName;
+      return 1;
+    }
+
+    void for_each(void (func)(CategoryNodePointer)) const {
+      for (auto temp = head; temp; temp = temp->next){
+        func(temp);
+      }
     }
   };
 }
