@@ -3,6 +3,9 @@
 
 namespace data_structures {
 
+  /**
+   * @brief implementasi struct untuk elemen kategori
+   */
   struct CategoryNode {
     std::string name;
     TaskPriorityQueue tasks;
@@ -21,14 +24,23 @@ namespace data_structures {
     }
   };
 
+  /**
+   * @brief tipe data pointer untuk kategori
+   */
   typedef CategoryNode *CategoryNodePointer;
   
+  /**
+   * @brief implementasi class untuk linked list
+   */
   class CategoryList {
     private :
     CategoryNodePointer head;
     CategoryNodePointer tail;
 
     public :
+    /**
+     * @brief menyimpan kategori yang sedang digunakan
+     */
     CategoryNodePointer current;
 
     /**
@@ -39,10 +51,20 @@ namespace data_structures {
       tail = nullptr;
     }
 
+    /**
+     * @brief mengetahui apakah list kosong
+     *
+     * @return 1 jika kosong, 0 jika tidak
+     */
     bool is_empty(){
       return head == nullptr;
     }
 
+    /**
+     * @brief memasukan node ke paling belakang list.
+     * 
+     * @param newNode node yang ingin dimasukkan.
+     */
     void insert_category(const CategoryNodePointer newNode){
       if (is_empty()){
         head = newNode;
@@ -55,6 +77,12 @@ namespace data_structures {
       tail = newNode;
     }
 
+    /**
+     * @brief mencari node dengan nama yang dimaksud.
+     * 
+     * @param name nama node yang ingin dicari.
+     * @return sebuah node jika ada, nullptr jika tidak ada
+     */
     CategoryNodePointer find_category(const std::string name) const {
       CategoryNodePointer temp = head;
       while (temp->name != name && temp){
@@ -63,8 +91,16 @@ namespace data_structures {
       return temp;
     }
 
+    /**
+     * @brief menghapus node dengan nama yang dimaksud.
+     * 
+     * @todo benahi memory leak (karena node task yang di kategori tidak di-delete)
+     * @todo mengubah fungsi supaya memasukkan node ke undo stack.
+     * 
+     * @param name nama node yang ingin dihapus.
+     * @return 0 jika penghapusan gagal (node tidak ditemukan), 1 jika berhasil
+     */
     bool remove_category(std::string name) {
-      // 0 jika gagal, 1 jika berhasil
       CategoryNodePointer temp = find_category(name);
       if (temp == nullptr) return 0;
 
@@ -91,10 +127,16 @@ namespace data_structures {
       }
 
       delete temp;
-      // TODO : Benahi memory leak
       return 1;
     }
 
+    /**
+     * @brief mengubah nama node.
+     * 
+     * @param oldName nama node yang ingin diganti namanya.
+     * @param newName nama baru node.
+     * @return 0 jika penggantian nama gagal (node tidak ditemukan), 1 jika berhasil
+     */
     bool rename_category(const std::string oldName, const std::string newName){
       // 0 jika gagal, 1 jika berhasil
       CategoryNodePointer temp = find_category(oldName);
@@ -104,6 +146,11 @@ namespace data_structures {
       return 1;
     }
 
+    /**
+     * @brief mengiterasi elemen pada list dan memberikannya kepada fungsi.
+     *
+     * @param func fungsi yang akan diberikan elemen.
+     */
     void for_each(void (func)(CategoryNodePointer)) const {
       for (auto temp = head; temp; temp = temp->next){
         func(temp);
