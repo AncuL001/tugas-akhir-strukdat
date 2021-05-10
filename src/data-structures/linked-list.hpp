@@ -29,6 +29,8 @@ namespace data_structures {
     CategoryNodePointer tail;
 
     public :
+    CategoryNodePointer current;
+
     /**
      * @brief Constructor
      */
@@ -45,6 +47,7 @@ namespace data_structures {
       if (is_empty()){
         head = newNode;
         tail = newNode;
+        current = newNode;
         return;
       }
       tail->next = newNode;
