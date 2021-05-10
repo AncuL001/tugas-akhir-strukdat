@@ -2,25 +2,9 @@
 #include "data-structures/linked-list.hpp"
 #include "data-structures/queue.hpp"
 
-void first_task_screen(data_structures::CategoryNodePointer &categpry){
-  // TODO : Implementasikan
-}
-
-void all_task_screen(data_structures::CategoryNodePointer &categpry){
-  // TODO : Implementasikan
-}
-
-void add_task_screen(data_structures::CategoryNodePointer &categpry){
-  // TODO : Implementasikan
-}
-
-void category_options_screen(data_structures::CategoryList &list){
-  // TODO : Implementasikan
-}
-
-void additional_options_screen(data_structures::CategoryList &list){
-  // TODO : Implementasikan
-}
+#include "menus/task-menu.hpp"
+#include "menus/category-menu.hpp"
+#include "menus/additional-menu.hpp"
 
 void main_menu(data_structures::CategoryList list){
   // TODO : Error-handling untuk list kosong dan queue kosong
