@@ -12,3 +12,7 @@ char compare_deadline(tm lhs, tm rhs){
 
   return '=';
 }
+
+tm parse_date(std::string string_form){
+  // TODO : Implementasikan
+}

@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 #include <ctime>
 
 /**
@@ -12,3 +13,5 @@
  * @return '>' jika tanggal yang kanan lebih awal, '<' jika yang kiri lebih awal, '=' jika kedua tanggal sama
  */
 char compare_deadline(tm lhs, tm rhs);
+
+tm parse_date(std::string string_form);
