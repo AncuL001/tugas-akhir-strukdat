@@ -1,5 +1,4 @@
 #pragma once
-#include <iostream>
 #include "./src/functions/datetime-plus.hpp"
 
 namespace data_structures {
@@ -135,7 +134,8 @@ namespace data_structures {
      *
      * @param func fungsi yang akan diberikan elemen.
      */
-    void for_each(void (func)(TaskNodePointer)) const {
+    template <typename F>
+    void for_each(F func) const {
       for (auto temp = head; temp; temp = temp->next){
         func(temp);
       }
