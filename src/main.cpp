@@ -6,8 +6,9 @@
 #include "menus/category-menu.hpp"
 #include "menus/additional-menu.hpp"
 
-void main_menu(data_structures::CategoryList list){
+void main_menu(data_structures::CategoryList &list){
   // TODO : Error-handling untuk list kosong dan queue kosong
+  // TODO : Tambahkan cls untuk setiap pindah screen
   while (true){
     std::cout << "Kategori :" << list.current->name << "\n\n"
               << "1. Lihat task pertama \n"
