@@ -13,6 +13,19 @@ char compare_deadline(tm lhs, tm rhs){
   return '=';
 }
 
-tm parse_date(std::string string_form){
-  // TODO : Implementasikan
+tm parse_date(const std::string string_form){
+  tm temp;
+  std::stringstream ss(string_form);
+  std::string y, m, d;
+
+  std::getline(ss, y, '-');
+  temp.tm_year = stoi(y);
+
+  std::getline(ss, m, '-');
+  temp.tm_mon  = stoi(m);
+
+  std::getline(ss, d, '-');
+  temp.tm_mday = stoi(d);
+  
+  return temp;
 }
