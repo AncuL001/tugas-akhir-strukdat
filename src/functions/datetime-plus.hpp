@@ -2,6 +2,7 @@
 #include <iostream>
 #include <sstream>
 #include <ctime>
+#include <windows.h>
 
 /**
  * @brief membandingkan dua tanggal
@@ -15,4 +16,11 @@
  */
 char compare_deadline(tm lhs, tm rhs);
 
+/**
+ * @brief memasukkan string berformat YYYY-MM-DD ke dalam tipe data tanggal 
+ * 
+ * @note menggunakan tm_year, tm_mon, tm_mday dalam struct tm
+ * @param string_form string berformat YYYY-MM-DD
+ * @return tipe data tm yang sudah diisi 
+ */
 tm parse_date(std::string string_form);
