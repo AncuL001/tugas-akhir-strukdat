@@ -1,6 +1,6 @@
 #include "task-menu.hpp"
 
-void first_task_screen(data_structures::CategoryNodePointer current){
+void first_task_screen(data_structures::CategoryNodePointer &current){
   // TODO : Benahi kasus task kosong
   while (true){
     auto top = current->tasks.top();
@@ -52,7 +52,7 @@ void all_task_screen(const data_structures::CategoryNodePointer current){
   }
 }
 
-void add_task_screen(data_structures::CategoryNodePointer current){
+void add_task_screen(data_structures::CategoryNodePointer &current){
   // TODO : Benahi input tanggal yang tidak benar
   std::string name;
   std::string deadline;
