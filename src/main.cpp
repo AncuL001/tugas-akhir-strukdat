@@ -1,4 +1,3 @@
-#include <iostream>
 #include "data-structures/linked-list.hpp"
 #include "data-structures/queue.hpp"
 
@@ -11,7 +10,8 @@ void main_menu(data_structures::CategoryList &list){
   // TODO : Tambahkan cls untuk setiap pindah screen
   while (true){
     data_structures::CategoryNodePointer current = list.get_current();
-    std::cout << "Kategori :" << current->name << "\n\n"
+    system("cls");
+    std::cout << "Kategori: " << current->name << "\n\n"
               << "1. Lihat task pertama \n"
               << "2. Lihat semua task\n"
               << "3. Tambahkan task\n\n"

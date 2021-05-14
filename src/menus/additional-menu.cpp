@@ -19,7 +19,8 @@ void purge_data(data_structures::CategoryList &list){
 void additional_options_screen(data_structures::CategoryList &list){
   // TODO : Implementasikan Stack
   // TODO : Regret my decision to add additional menu
-  std::cout << "\nAksi Terakhir :\n\n\n\n"
+  system("cls");
+  std::cout << "\nAksi Terakhir:\n\n\n\n"
             << "1. Undo aksi terakhir\n"
             << "2. Impor data\n"
             << "3. Ekspor data\n"
