@@ -1,11 +1,20 @@
 #include "task-menu.hpp"
 
 void first_task_screen(data_structures::CategoryNodePointer &current){
-  // TODO : Benahi kasus task kosong
   auto top = current->tasks.top();
+
   system("cls");
-  std::cout << "Kategori: " << current->name << "\n\n\n"
-            << top->description
+  std::cout << "Kategori: " << current->name << "\n\n\n";
+  if (current->tasks.is_empty()){
+    std::cout << "Tidak ada task!\n"
+              << "0. Kembali\n"
+              << ">> ";
+    char sel;
+    std::cin >> sel;
+    return;
+  }
+
+  std::cout << top->description
             << "\nDeadline : " << std::setfill('0') << std::setw(4) << top->deadline.tm_year << "-" 
                                << std::setfill('0') << std::setw(2) << top->deadline.tm_mon << "-" 
                                << std::setfill('0') << std::setw(2) << top->deadline.tm_mday << "\n\n\n\n" 
@@ -28,12 +37,20 @@ void first_task_screen(data_structures::CategoryNodePointer &current){
 }
 
 void all_task_screen(const data_structures::CategoryNodePointer current){
-  // TODO : Benahi kasus task kosong
-  // TODO : Pagination
   auto tasks = current->tasks;
+
   system("cls");
-  std::cout << "Kategori: " << current->name << "\n\n\n"
-            << "Deadline   | Task\n";
+  std::cout << "Kategori: " << current->name << "\n\n\n";
+  if (tasks.is_empty()){
+    std::cout << "Tidak ada task!\n"
+              << "0. Kembali\n"
+              << ">> ";
+    char sel;
+    std::cin >> sel;
+    return;
+  }
+
+  std::cout << "Deadline   | Task\n";
   tasks.for_each([](data_structures::TaskNodePointer task){
     std::cout << task->deadline.tm_year << "-" 
               << task->deadline.tm_mon << "-" 
