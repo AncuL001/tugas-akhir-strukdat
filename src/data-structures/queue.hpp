@@ -73,19 +73,19 @@ namespace data_structures {
       TaskNodePointer tempPrev = nullptr;
       TaskNodePointer temp = head;
       
-      while (compare_deadline(temp->deadline, newNode->deadline) == '>' || 
+      while (compare_deadline(temp->deadline, newNode->deadline) == '<' || 
              compare_deadline(temp->deadline, newNode->deadline) == '='){
         if (temp == tail) break;
         tempPrev = temp;
         temp = temp->next;
       }
 
-      if (temp == head && compare_deadline(newNode->deadline, temp->deadline) == '>'){
+      if (temp == head && compare_deadline(newNode->deadline, temp->deadline) == '<'){
         newNode->next = temp;
         head = newNode;
         return;
       }
-      if (temp == tail && compare_deadline(newNode->deadline, temp->deadline) == '<'){
+      if (temp == tail && compare_deadline(newNode->deadline, temp->deadline) == '>'){
         temp->next = newNode;
         tail = newNode;
         return;
