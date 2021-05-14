@@ -28,7 +28,7 @@ void first_task_screen(data_structures::CategoryNodePointer current){
   }
 }
 
-void all_task_screen(data_structures::CategoryNodePointer current){
+void all_task_screen(const data_structures::CategoryNodePointer current){
   // TODO : Benahi kasus task kosong
   // TODO : Pagination
   auto tasks = current->tasks;
