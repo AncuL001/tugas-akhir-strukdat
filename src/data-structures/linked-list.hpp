@@ -37,12 +37,12 @@ namespace data_structures {
     CategoryNodePointer head;
     CategoryNodePointer tail;
 
-    public :
     /**
      * @brief menyimpan kategori yang sedang digunakan
      */
     CategoryNodePointer current;
 
+    public :
     /**
      * @brief Constructor
      */
@@ -143,6 +143,28 @@ namespace data_structures {
       if (temp == nullptr) return 0;
 
       temp->name = newName;
+      return 1;
+    }
+
+    /**
+     * @brief mengembalikan current.
+     * @return current
+     */
+    CategoryNodePointer get_current() const {
+      return current;
+    }
+
+    /**
+     * @brief mengganti current.
+     * 
+     * @param name nama node yang ingin dijadikan current
+     * @return 0 jika penggantian current gagal (node tidak ditemukan), 1 jika berhasil
+     */
+    bool move_current(const std::string name){
+      CategoryNodePointer temp = find_category(name);
+      if (temp == nullptr) return 0;
+
+      current = temp;
       return 1;
     }
 
