@@ -18,7 +18,7 @@ void main_menu(data_structures::CategoryList &list){
               << "8. Pengaturan kategori\n"
               << "9. Pengaturan lain\n\n"
               << "0. Keluar\n"
-              << ">>";
+              << ">> ";
     char sel;
     std::cin >> sel;
     switch (sel){

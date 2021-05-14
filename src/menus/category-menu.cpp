@@ -11,7 +11,7 @@ void move_category_screen(data_structures::CategoryList &list){
   std::string name;
   print_categories(list);
 
-  std::cout << "\n0. Batal\n>>";
+  std::cout << "\n0. Batal\n>> ";
   std::getline(std::cin, name);
   if (name == "0") return;
 
@@ -22,11 +22,11 @@ void rename_category_screen(data_structures::CategoryList &list){
   std::string oldName, newName;
   print_categories(list);
 
-  std::cout << "\n0. Batal\n>>";
+  std::cout << "\n0. Batal\n>> ";
   std::getline(std::cin, oldName);
   if (oldName == "0") return;
 
-  std::cout << "Nama Baru:\n>>";
+  std::cout << "Nama Baru:\n>> ";
   std::getline(std::cin, newName);
   if (newName == "0") return;
 
@@ -36,7 +36,7 @@ void rename_category_screen(data_structures::CategoryList &list){
 void add_category_screen(data_structures::CategoryList &list){
   std::string name;
   std::cout << "0. Batal\n"
-            << "Nama Baru:\n>>";
+            << "Nama Baru:\n>> ";
   std::getline(std::cin, name);
   if (name == "0") return;
 
@@ -47,7 +47,7 @@ void remove_category_screen(data_structures::CategoryList &list){
   std::string name;
   print_categories(list);
 
-  std::cout << "\n0. Batal\n>>";
+  std::cout << "\n0. Batal\n>> ";
   std::getline(std::cin, name);
   if (name == "0") return;
 
@@ -56,7 +56,7 @@ void remove_category_screen(data_structures::CategoryList &list){
 
 void view_category_screen(const data_structures::CategoryList list){
   print_categories(list);
-  std::cout << "0. Kembali\n>>";
+  std::cout << "0. Kembali\n>> ";
   char sel;
   std::cin >> sel;
   switch (sel){
@@ -77,7 +77,7 @@ void category_options_screen(data_structures::CategoryList &list){
             << "4. Hapus Kategori\n"
             << "5. Lihat Semua Kategori\n\n\n\n\n\n\n"
             << "0. Kembali\n"
-            << ">>";
+            << ">> ";
   char sel;
     std::cin >> sel;
     switch (sel){
