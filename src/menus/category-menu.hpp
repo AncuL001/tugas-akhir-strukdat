@@ -1,6 +1,6 @@
 #pragma once
-#include "./src/data-structures/linked-list.hpp"
-#include "./src/data-structures/queue.hpp"
+#include "../data-structures/linked-list.hpp"
+#include "../data-structures/queue.hpp"
 
 void print_categories(const data_structures::CategoryList list);
 

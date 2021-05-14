@@ -1,6 +1,6 @@
 #pragma once
-#include "./src/data-structures/linked-list.hpp"
-#include "./src/data-structures/queue.hpp"
+#include "../data-structures/linked-list.hpp"
+#include "../data-structures/queue.hpp"
 
 void first_task_screen(data_structures::CategoryNodePointer &categpry);
 
