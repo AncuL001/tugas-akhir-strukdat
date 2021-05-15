@@ -21,16 +21,12 @@ bool empty_list_screen(data_structures::CategoryList &list){
     case '2':
       import_data(list);
       return true;
-    case '0':
-      return false;
     default:
-      break;
+      return false;
   }
 }
 
 void main_menu(data_structures::CategoryList &list){
-  // TODO : Error-handling untuk list kosong dan queue kosong
-  // TODO : Tambahkan cls untuk setiap pindah screen
   while (true){
     if (list.is_empty()){
       if (!empty_list_screen(list)) return;
