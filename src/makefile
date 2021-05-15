@@ -1,2 +1,2 @@
-run: main.cpp menus/task-menu.cpp menus/category-menu.cpp menus/additional-menu.cpp functions/datetime-plus.cpp
-	g++ -o app main.cpp menus/task-menu.cpp menus/category-menu.cpp menus/additional-menu.cpp functions/datetime-plus.cpp -I.
+build: main.cpp menus/task-menu.cpp menus/category-menu.cpp menus/additional-menu.cpp functions/datetime-plus.cpp
+	g++ -o main main.cpp menus/task-menu.cpp menus/category-menu.cpp menus/additional-menu.cpp functions/datetime-plus.cpp -I.
