@@ -19,7 +19,15 @@ void move_category_screen(data_structures::CategoryList &list){
   std::getline(std::cin, name);
   if (name == "0") return;
 
-  list.move_current(name);
+  if (list.move_current(name) == 0){
+    system("cls");
+    std::cout << "Perpindahan kategori gagal!\n"
+              << "Kategori tidak ditemukan.\n"
+              << "0. Kembali\n"
+              << ">> ";
+    std::string dummy;
+    std::getline(std::cin, dummy);
+  }
 }
 
 void rename_category_screen(data_structures::CategoryList &list){
@@ -34,13 +42,32 @@ void rename_category_screen(data_structures::CategoryList &list){
   std::getline(std::cin, oldName);
   if (oldName == "0") return;
 
-  std::cout << "Nama baru: (0. Batal)\n"
+  std::cout << "Nama baru : (0. Batal)\n"
             << ">> ";
 
   std::getline(std::cin, newName);
   if (newName == "0") return;
 
-  list.rename_category(oldName, newName);
+  if (list.find_category(newName) && (oldName != newName)){
+    system("cls");
+    std::cout << "Pengubahan nama kategori gagal!\n"
+              << "Nama kategori baru tidak boleh sama dengan kategori lain\n"
+              << "0. Kembali\n"
+              << ">> ";
+    std::string dummy;
+    std::getline(std::cin, dummy);
+    return;
+  }
+
+  if (list.rename_category(oldName, newName) == 0){
+    system("cls");
+    std::cout << "Pengubahan nama kategori gagal!\n"
+              << "Kategori tidak ditemukan\n"
+              << "0. Kembali\n"
+              << ">> ";
+    std::string dummy;
+    std::getline(std::cin, dummy);
+  }
 }
 
 void add_category_screen(data_structures::CategoryList &list){
@@ -65,9 +92,29 @@ void remove_category_screen(data_structures::CategoryList &list){
 
   std::string name;
   std::getline(std::cin, name);
+  std::getline(std::cin, name);
   if (name == "0") return;
 
-  list.remove_category(name);
+  if (list.find_category(name) && !list.find_category(name)->tasks.is_empty()){
+    system("cls");
+    std::cout << "Penghapusan kategori gagal!\n"
+              << "Kategori masih memiliki task\n"
+              << "0. Kembali\n"
+              << ">> ";
+    std::string dummy;
+    std::getline(std::cin, dummy);
+    return;
+  }
+
+  if (list.remove_category(name) == 0){
+    system("cls");
+    std::cout << "Penghapusan kategori gagal!\n"
+              << "Kategori tidak ditemukan\n"
+              << "0. Kembali\n"
+              << ">> ";
+    std::string dummy;
+    std::getline(std::cin, dummy);
+  }
 }
 
 void view_category_screen(const data_structures::CategoryList list){
