@@ -5,48 +5,77 @@
 #include "menus/category-menu.hpp"
 #include "menus/additional-menu.hpp"
 
+bool empty_list_screen(data_structures::CategoryList &list){
+  system("cls");
+  std::cout << "Tidak ada kategori.\n"
+            << "1. Buat kategori baru\n"
+            << "2. Impor data\n"
+            << "0. Keluar\n"
+            << ">> ";
+  char sel;
+  std::cin >> sel;
+  switch(sel){
+    case '1':
+      add_category_screen(list);
+      return true;
+    case '2':
+      import_data(list);
+      return true;
+    case '0':
+      return false;
+    default:
+      break;
+  }
+}
+
 void main_menu(data_structures::CategoryList &list){
   // TODO : Error-handling untuk list kosong dan queue kosong
   // TODO : Tambahkan cls untuk setiap pindah screen
   while (true){
-    data_structures::CategoryNodePointer current = list.get_current();
-    system("cls");
-    std::cout << "Kategori: " << current->name << "\n\n"
-              << "1. Lihat task pertama \n"
-              << "2. Lihat semua task\n"
-              << "3. Tambahkan task\n\n"
-              << "8. Pengaturan kategori\n"
-              << "9. Pengaturan lain\n\n"
-              << "0. Keluar\n"
-              << ">> ";
-    char sel;
-    std::cin >> sel;
-    switch (sel){
-      case '1':
-        first_task_screen(current);
-        break;
+    if (list.is_empty()){
+      if (!empty_list_screen(list)) return;
+    }
 
-      case '2':
-        all_task_screen(current);
-        break;
+    else {
+      data_structures::CategoryNodePointer current = list.get_current();
+      system("cls");
+      std::cout << "Kategori: " << current->name << "\n\n"
+                << "1. Lihat task pertama \n"
+                << "2. Lihat semua task\n"
+                << "3. Tambahkan task\n\n"
+                << "8. Pengaturan kategori\n"
+                << "9. Pengaturan lain\n\n"
+                << "0. Keluar\n"
+                << ">> ";
+      char sel;
+      std::cin >> sel;
+      switch (sel){
+        case '1':
+          first_task_screen(current);
+          break;
 
-      case '3':
-        add_task_screen(current);
-        break;
+        case '2':
+          all_task_screen(current);
+          break;
 
-      case '8':
-        category_options_screen(list);
-        break;
+        case '3':
+          add_task_screen(current);
+          break;
 
-      case '9':
-        additional_options_screen(list); 
-        break;
+        case '8':
+          category_options_screen(list);
+          break;
 
-      case '0':
-        return;
+        case '9':
+          additional_options_screen(list); 
+          break;
 
-      default:
-        break;
+        case '0':
+          return;
+
+        default:
+          break;
+      }
     }
   }
 }
