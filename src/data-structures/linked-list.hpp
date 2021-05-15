@@ -85,7 +85,7 @@ namespace data_structures {
      */
     CategoryNodePointer find_category(const std::string name) const {
       CategoryNodePointer temp = head;
-      while (temp->name != name && temp){
+      while ((temp) && (temp->name != name)){
         temp = temp->next;
       }
       return temp;
