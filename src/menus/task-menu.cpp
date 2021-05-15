@@ -9,8 +9,9 @@ void first_task_screen(data_structures::CategoryNodePointer &current){
     std::cout << "Tidak ada task!\n"
               << "0. Kembali\n"
               << ">> ";
-    char sel;
-    std::cin >> sel;
+    std::string dummy;
+    std::getline(std::cin, dummy);
+    std::getline(std::cin, dummy);
     return;
   }
 
@@ -45,8 +46,9 @@ void all_task_screen(const data_structures::CategoryNodePointer current){
     std::cout << "Tidak ada task!\n"
               << "0. Kembali\n"
               << ">> ";
-    char sel;
-    std::cin >> sel;
+    std::string dummy;
+    std::getline(std::cin, dummy);
+    std::getline(std::cin, dummy);
     return;
   }
 
