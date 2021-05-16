@@ -19,7 +19,7 @@ bool empty_list_screen(data_structures::CategoryList &list){
       add_category_screen(list);
       return true;
     case '2':
-      import_data(list);
+      import_data_screen(list);
       return true;
     default:
       return false;
