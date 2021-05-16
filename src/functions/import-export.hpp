@@ -1,4 +1,6 @@
 #pragma once
+#include <csv2.hpp>
+#include <vector>
 #include "../data-structures/linked-list.hpp"
 #include "../data-structures/queue.hpp"
 
