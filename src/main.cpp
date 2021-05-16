@@ -78,16 +78,5 @@ void main_menu(data_structures::CategoryList &list){
 
 int main(){
   data_structures::CategoryList list;
-
-  //Stub data
-  list.insert_category(new data_structures::CategoryNode("category_1"));
-  list.insert_category(new data_structures::CategoryNode("category_2"));
-  list.insert_category(new data_structures::CategoryNode("category_3"));
-  list.insert_category(new data_structures::CategoryNode("category_4"));
-  list.insert_category(new data_structures::CategoryNode("category_5"));
-  list.get_current()->tasks.enqueue(new data_structures::TaskNode("1_task_1", parse_date("2021-12-14")));
-  list.get_current()->tasks.enqueue(new data_structures::TaskNode("1_task_2", parse_date("2021-11-15")));
-  list.get_current()->tasks.enqueue(new data_structures::TaskNode("1_task_3", parse_date("2021-11-13")));
-  list.get_current()->tasks.enqueue(new data_structures::TaskNode("1_task_0", parse_date("2020-11-13")));
   main_menu(list);
 }
