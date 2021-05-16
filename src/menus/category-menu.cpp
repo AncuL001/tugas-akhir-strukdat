@@ -97,13 +97,14 @@ void remove_category_screen(data_structures::CategoryList &list){
 
   if (list.find_category(name) && !list.find_category(name)->tasks.is_empty()){
     system("cls");
-    std::cout << "Penghapusan kategori gagal!\n"
-              << "Kategori masih memiliki task\n"
+    std::cout << "Kategori masih memiliki task\n"
+              << "Jika melanjutkan, semua task akan dihapus.\n"
+              << "1. Melanjutkan\n"
               << "0. Kembali\n"
               << ">> ";
-    std::string dummy;
-    std::getline(std::cin, dummy);
-    return;
+    char sel;
+    std::cin >> sel;
+    if (sel == '0') return;
   }
 
   if (list.remove_category(name) == 0){
