@@ -1,7 +1,7 @@
 #include "category-menu.hpp"
 
 void print_categories(const data_structures::CategoryList list){
-  std::cout << "Daftar Kategori:";
+  std::cout << "Daftar Kategori:\n";
   list.for_each([](data_structures::CategoryNodePointer category){
     std::cout << " " << category->name << "\n";
   });
