@@ -1,49 +1,58 @@
 #include "additional-menu.hpp"
 
-void undo_action(data_structures::CategoryList &list){
-  // TODO : Implementasikan
+void import_data_screen(data_structures::CategoryList &list){
+  system("cls");
+  std::cout << "Note: data yang ada di program akan terhapus\n"
+            << "Nama file untuk diimpor: (0. Batal)\n"
+            << ">> ";
+  std::string name;
+  std::getline(std::cin, name);
+  std::getline(std::cin, name);
+  if (name == "0") return;
+
+  if (!import_data(list, name)){
+    std::cout << "\nImpor data gagal!\n"
+              << "0. Kembali\n"
+              << ">> ";
+    std::string dummy;
+    std::getline(std::cin, dummy);
+  };
 }
 
-void import_data(data_structures::CategoryList &list){
-  // TODO : Implementasikan
-}
+void export_data_screen(data_structures::CategoryList &list){
+  system("cls");
+  std::cout << "Nama file ekspor: (0. Batal)\n"
+            << ">> ";
+  std::string name;
+  std::getline(std::cin, name);
+  std::getline(std::cin, name);
+  if (name == "0") return;
 
-void export_data(data_structures::CategoryList &list){
-  // TODO : Implementasikan
-}
-
-void purge_data(data_structures::CategoryList &list){
-  // TODO : Implementasikan
+  export_data(list, name);
 }
 
 void additional_options_screen(data_structures::CategoryList &list){
   // TODO : Implementasikan Stack
   // TODO : Regret my decision to add additional menu
   system("cls");
-  std::cout << "\nAksi Terakhir:\n\n"
-            << "1. Undo aksi terakhir\n"
-            << "2. Impor data\n"
-            << "3. Ekspor data\n"
-            << "4. Hapus semua data\n"
+  std::cout << "1. Impor data\n"
+            << "2. Ekspor data\n"
+            << "3. Hapus semua data\n"
             << "0. Kembali\n"
             << ">> ";
   char sel;
   std::cin >> sel;
   switch (sel){
       case '1':
-        undo_action(list);
+        import_data_screen(list);
         break;
 
       case '2':
-        import_data(list);
+        export_data_screen(list);
         break;
 
       case '3':
-        export_data(list);
-        break;
-
-      case '4':
-        purge_data(list);
+        list.make_empty();
         break;
 
       case '0':
