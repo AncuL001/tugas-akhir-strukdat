@@ -16,9 +16,10 @@ void first_task_screen(data_structures::CategoryNodePointer &current){
   }
 
   std::cout << top->description
-            << "\nDeadline : " << std::setfill('0') << std::setw(4) << top->deadline.tm_year << "-" 
-                               << std::setfill('0') << std::setw(2) << top->deadline.tm_mon << "-" 
-                               << std::setfill('0') << std::setw(2) << top->deadline.tm_mday << "\n\n\n\n" 
+            << "\nDeadline : "
+            << std::setfill('0') << std::setw(2) << top->deadline.tm_mday << "-" 
+            << std::setfill('0') << std::setw(2) << top->deadline.tm_mon << "-" 
+            << std::setfill('0') << std::setw(4) << top->deadline.tm_year << "\n\n\n\n" 
             << "1. Tandai selesai\n"
             << "0. Kembali\n"
             << ">> ";
@@ -54,9 +55,9 @@ void all_task_screen(const data_structures::CategoryNodePointer current){
 
   std::cout << "Deadline   | Task\n";
   tasks.for_each([](data_structures::TaskNodePointer task){
-    std::cout << task->deadline.tm_year << "-" 
-              << task->deadline.tm_mon << "-" 
-              << task->deadline.tm_mday << " | " 
+    std::cout << std::setfill('0') << std::setw(2) << task->deadline.tm_mday << "-" 
+              << std::setfill('0') << std::setw(2) << task->deadline.tm_mon << "-" 
+              << std::setfill('0') << std::setw(4) << task->deadline.tm_year << " | " 
               << task->description << "\n";
   });
   std::cout << "\n\n\n0. Kembali\n>> ";
