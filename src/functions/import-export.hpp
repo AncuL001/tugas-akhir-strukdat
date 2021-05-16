@@ -11,6 +11,7 @@
  * @note format adalah category,task,deadline(yyyy-mm-dd)
  * @note semua task mempunyai category
  * @note jika ada category yang tidak ada task, field task dan deadline kosong
+ * @todo handle case di mana nama file yang dimasukkan tidak ada
  * 
  * @param list list yang akan dimasukkan data
  * @param nama nama file yang ingin diimpor
