@@ -60,6 +60,11 @@ namespace data_structures {
       return head == nullptr;
     }
 
+    void make_empty(){
+      while (!is_empty()){
+        remove_category(head->name);
+      }
+    }
     /**
      * @brief memasukan node ke paling belakang list.
      * 
@@ -94,7 +99,6 @@ namespace data_structures {
     /**
      * @brief menghapus node dengan nama yang dimaksud.
      * 
-     * @todo benahi memory leak (karena node task yang di kategori tidak di-delete)
      * @todo mengubah fungsi supaya memasukkan node ke undo stack.
      * 
      * @param name nama node yang ingin dihapus.
@@ -103,6 +107,7 @@ namespace data_structures {
     bool remove_category(std::string name) {
       CategoryNodePointer temp = find_category(name);
       if (temp == nullptr) return 0;
+      temp->tasks.make_empty();
 
       if (temp == head){
         if (temp == tail){

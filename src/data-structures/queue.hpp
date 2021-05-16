@@ -121,6 +121,13 @@ namespace data_structures {
     }
 
     /**
+     * @brief menghapus isi queue.
+     */
+    void make_empty(){
+      while (!is_empty()) dequeue();
+    }
+
+    /**
      * @brief mengembalikan elemen head.
      *
      * @return elemen head.
