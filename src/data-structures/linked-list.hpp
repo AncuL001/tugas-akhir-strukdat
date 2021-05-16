@@ -77,6 +77,7 @@ namespace data_structures {
         current = newNode;
         return;
       }
+      if (find_category(newNode->name)) return;
       tail->next = newNode;
       newNode->prev = tail;
       tail = newNode;
