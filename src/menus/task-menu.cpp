@@ -85,7 +85,7 @@ void add_task_screen(data_structures::CategoryNodePointer &current){
   if (name == "0") return;
 
   std::cout << "\n"
-            << "Deadline (YYYY-MM-DD) : (0. Batal)\n"
+            << "Deadline (DD-MM-YYYY) : (0. Batal)\n"
             << ">> ";
   std::cin >> deadline;
   if (deadline == "0") return;

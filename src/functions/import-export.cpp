@@ -40,7 +40,7 @@ bool export_data(const data_structures::CategoryList list, std::string name){
   std::ofstream stream(name);
   csv2::Writer<> writer(stream);
 
-  std::vector<std::string> header = {"category", "task", "deadline(yyyy-mm-dd)"};
+  std::vector<std::string> header = {"category", "task", "deadline(dd-mm-yyyy)"};
   writer.write_row(header);
 
   list.for_each([&writer](data_structures::CategoryNodePointer category){
@@ -55,11 +55,11 @@ bool export_data(const data_structures::CategoryList list, std::string name){
       category->tasks.for_each([&writer, &row](data_structures::TaskNodePointer task){
         row[1] = task->description;
 
-        std::string string_date = std::to_string(task->deadline.tm_year);
+        std::string string_date = std::to_string(task->deadline.tm_mday);
         string_date += "-";
         string_date += std::to_string(task->deadline.tm_mon);
         string_date += "-";
-        string_date += std::to_string(task->deadline.tm_mday);
+        string_date += std::to_string(task->deadline.tm_year);
         row[2] = string_date;
 
         writer.write_row(row);
