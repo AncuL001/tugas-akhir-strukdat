@@ -5,8 +5,14 @@
 #include "menus/category-menu.hpp"
 #include "menus/additional-menu.hpp"
 
+#ifdef _WIN32
+#define CLEAR "cls"
+#else //In any other OS
+#define CLEAR "clear"
+#endif
+
 bool empty_list_screen(data_structures::CategoryList &list){
-  system("cls");
+  system(CLEAR);
   std::cout << "Tidak ada kategori.\n"
             << "1. Buat kategori baru\n"
             << "2. Impor data\n"
@@ -34,7 +40,7 @@ void main_menu(data_structures::CategoryList &list){
 
     else {
       data_structures::CategoryNodePointer current = list.get_current();
-      system("cls");
+      system(CLEAR);
       std::cout << "Kategori: " << current->name << "\n\n"
                 << "1. Lihat task pertama \n"
                 << "2. Lihat semua task\n"

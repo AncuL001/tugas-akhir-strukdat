@@ -3,7 +3,7 @@
 void first_task_screen(data_structures::CategoryNodePointer &current){
   auto top = current->tasks.top();
 
-  system("cls");
+  system(CLEAR);
   std::cout << "Kategori: " << current->name << "\n\n\n";
   if (current->tasks.is_empty()){
     std::cout << "Tidak ada task!\n"
@@ -41,7 +41,7 @@ void first_task_screen(data_structures::CategoryNodePointer &current){
 void all_task_screen(const data_structures::CategoryNodePointer current){
   auto tasks = current->tasks;
 
-  system("cls");
+  system(CLEAR);
   std::cout << "Kategori: " << current->name << "\n\n\n";
   if (tasks.is_empty()){
     std::cout << "Tidak ada task!\n"
@@ -74,7 +74,7 @@ void all_task_screen(const data_structures::CategoryNodePointer current){
 
 void add_task_screen(data_structures::CategoryNodePointer &current){
   // TODO : Benahi input tanggal yang tidak benar
-  system("cls");
+  system(CLEAR);
   std::cout << "Kategori: " << current->name << "\n\n\n"
             << "Nama task : (0. Batal)\n"
             << ">> ";

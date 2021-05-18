@@ -2,6 +2,12 @@
 #include "../data-structures/linked-list.hpp"
 #include "../data-structures/queue.hpp"
 
+#ifdef _WIN32
+#define CLEAR "cls"
+#else //In any other OS
+#define CLEAR "clear"
+#endif
+
 void print_categories(const data_structures::CategoryList list);
 
 void move_category_screen(data_structures::CategoryList &list);

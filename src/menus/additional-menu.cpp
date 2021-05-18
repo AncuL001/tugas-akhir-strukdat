@@ -1,7 +1,7 @@
 #include "additional-menu.hpp"
 
 void import_data_screen(data_structures::CategoryList &list){
-  system("cls");
+  system(CLEAR);
   std::cout << "Note: data yang ada di program akan terhapus\n"
             << "Nama file untuk diimpor: (0. Batal)\n"
             << ">> ";
@@ -20,7 +20,7 @@ void import_data_screen(data_structures::CategoryList &list){
 }
 
 void export_data_screen(data_structures::CategoryList &list){
-  system("cls");
+  system(CLEAR);
   std::cout << "Nama file ekspor: (0. Batal)\n"
             << ">> ";
   std::string name;
@@ -34,7 +34,7 @@ void export_data_screen(data_structures::CategoryList &list){
 void additional_options_screen(data_structures::CategoryList &list){
   // TODO : Implementasikan Stack
   // TODO : Regret my decision to add additional menu
-  system("cls");
+  system(CLEAR);
   std::cout << "1. Impor data\n"
             << "2. Ekspor data\n"
             << "3. Hapus semua data\n"

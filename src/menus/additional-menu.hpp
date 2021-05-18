@@ -4,6 +4,12 @@
 
 #include "../functions/import-export.hpp"
 
+#ifdef _WIN32
+#define CLEAR "cls"
+#else //In any other OS
+#define CLEAR "clear"
+#endif
+
 void import_data_screen(data_structures::CategoryList &list);
 
 void export_data_screen(data_structures::CategoryList &list);

@@ -8,7 +8,7 @@ void print_categories(const data_structures::CategoryList list){
 }
 
 void move_category_screen(data_structures::CategoryList &list){
-  system("cls");
+  system(CLEAR);
   print_categories(list);
   std::cout << "\n"
             << "Nama kategori: (0. Batal)\n"
@@ -20,7 +20,7 @@ void move_category_screen(data_structures::CategoryList &list){
   if (name == "0") return;
 
   if (list.move_current(name) == 0){
-    system("cls");
+    system(CLEAR);
     std::cout << "Perpindahan kategori gagal!\n"
               << "Kategori tidak ditemukan.\n"
               << "0. Kembali\n"
@@ -31,7 +31,7 @@ void move_category_screen(data_structures::CategoryList &list){
 }
 
 void rename_category_screen(data_structures::CategoryList &list){
-  system("cls");
+  system(CLEAR);
   print_categories(list);
   std::cout << "\n"
             << "Nama kategori: (0. Batal)\n"
@@ -49,7 +49,7 @@ void rename_category_screen(data_structures::CategoryList &list){
   if (newName == "0") return;
 
   if (list.find_category(newName) && (oldName != newName)){
-    system("cls");
+    system(CLEAR);
     std::cout << "Pengubahan nama kategori gagal!\n"
               << "Nama kategori baru tidak boleh sama dengan kategori lain\n"
               << "0. Kembali\n"
@@ -60,7 +60,7 @@ void rename_category_screen(data_structures::CategoryList &list){
   }
 
   if (list.rename_category(oldName, newName) == 0){
-    system("cls");
+    system(CLEAR);
     std::cout << "Pengubahan nama kategori gagal!\n"
               << "Kategori tidak ditemukan\n"
               << "0. Kembali\n"
@@ -71,7 +71,7 @@ void rename_category_screen(data_structures::CategoryList &list){
 }
 
 void add_category_screen(data_structures::CategoryList &list){
-  system("cls");
+  system(CLEAR);
   std::cout << "Nama kategori: (0. Batal)\n"
             << ">> ";
 
@@ -81,7 +81,7 @@ void add_category_screen(data_structures::CategoryList &list){
   if (name == "0") return;
 
   if (list.insert_category(new data_structures::CategoryNode(name)) == 0){
-    system("cls");
+    system(CLEAR);
     std::cout << "Penambahan kategori gagal!\n"
               << "Nama kategori baru tidak boleh sama dengan kategori lain\n"
               << "0. Kembali\n"
@@ -92,7 +92,7 @@ void add_category_screen(data_structures::CategoryList &list){
 }
 
 void remove_category_screen(data_structures::CategoryList &list){
-  system("cls");
+  system(CLEAR);
   print_categories(list);
   std::cout << "\n"
             << "Nama kategori yang ingin dihapus: (0. Batal)\n"
@@ -104,7 +104,7 @@ void remove_category_screen(data_structures::CategoryList &list){
   if (name == "0") return;
 
   if (list.find_category(name) && !list.find_category(name)->tasks.is_empty()){
-    system("cls");
+    system(CLEAR);
     std::cout << "Kategori masih memiliki task\n"
               << "Jika melanjutkan, semua task akan dihapus.\n"
               << "1. Melanjutkan\n"
@@ -116,7 +116,7 @@ void remove_category_screen(data_structures::CategoryList &list){
   }
 
   if (list.remove_category(name) == 0){
-    system("cls");
+    system(CLEAR);
     std::cout << "Penghapusan kategori gagal!\n"
               << "Kategori tidak ditemukan\n"
               << "0. Kembali\n"
@@ -127,7 +127,7 @@ void remove_category_screen(data_structures::CategoryList &list){
 }
 
 void view_category_screen(const data_structures::CategoryList list){
-  system("cls");
+  system(CLEAR);
   print_categories(list);
   std::cout << "0. Kembali\n"
             << ">> ";
@@ -145,7 +145,7 @@ void view_category_screen(const data_structures::CategoryList list){
 
 void category_options_screen(data_structures::CategoryList &list){
   data_structures::CategoryNodePointer current = list.get_current();
-  system("cls");
+  system(CLEAR);
   std::cout << "Kategori : " << current->name << "\n\n"
             << "1. Pindah Kategori\n"
             << "2. Ubah Nama Kategori\n"
