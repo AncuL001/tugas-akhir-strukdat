@@ -80,7 +80,15 @@ void add_category_screen(data_structures::CategoryList &list){
   std::getline(std::cin, name);
   if (name == "0") return;
 
-  list.insert_category(new data_structures::CategoryNode(name));
+  if (list.insert_category(new data_structures::CategoryNode(name)) == 0){
+    system("cls");
+    std::cout << "Penambahan kategori gagal!\n"
+              << "Nama kategori baru tidak boleh sama dengan kategori lain\n"
+              << "0. Kembali\n"
+              << ">> ";
+    std::string dummy;
+    std::getline(std::cin, dummy);
+  };
 }
 
 void remove_category_screen(data_structures::CategoryList &list){

@@ -69,18 +69,20 @@ namespace data_structures {
      * @brief memasukan node ke paling belakang list.
      * 
      * @param newNode node yang ingin dimasukkan.
+     * @return 0 jika pengisian gagal (nama sudah ada), 1 jika berhasil
      */
-    void insert_category(const CategoryNodePointer newNode){
+    bool insert_category(const CategoryNodePointer newNode){
       if (is_empty()){
         head = newNode;
         tail = newNode;
         current = newNode;
-        return;
+        return 1;
       }
-      if (find_category(newNode->name)) return;
+      if (find_category(newNode->name)) return 0;
       tail->next = newNode;
       newNode->prev = tail;
       tail = newNode;
+      return 1;
     }
 
     /**
@@ -144,7 +146,6 @@ namespace data_structures {
      * @return 0 jika penggantian nama gagal (node tidak ditemukan), 1 jika berhasil
      */
     bool rename_category(const std::string oldName, const std::string newName){
-      // 0 jika gagal, 1 jika berhasil
       CategoryNodePointer temp = find_category(oldName);
       if (temp == nullptr) return 0;
 
