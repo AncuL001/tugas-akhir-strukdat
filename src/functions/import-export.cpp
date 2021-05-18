@@ -7,6 +7,8 @@ bool import_data(data_structures::CategoryList &list, std::string name){
   std::string directory = "data/";
   name.insert(0, directory);
 
+  list.make_empty();
+
   csv2::Reader<> file;
   if (!file.mmap(name)) return 0;
 
